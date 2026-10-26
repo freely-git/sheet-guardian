@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Sheet Guardian - Google 表格权限管家",
+  "description": "使用当前 Chrome Google 身份扫描全部 Drive 文件，支持组合或一一对应授权、转移所有者、共享治理与 Sheet 保护权限同步。",
+  "version": "0.5.0",
+  "minimum_chrome_version": "109",
+  "permissions": ["identity", "identity.email"],
+  "host_permissions": ["https://www.googleapis.com/*", "https://sheets.googleapis.com/*"],
+  "oauth2": {
+    "client_id": "REPLACE_WITH_YOUR_CHROME_EXTENSION_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/drive"]
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "打开 Sheet Guardian",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  }
+}
